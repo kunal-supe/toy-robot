@@ -23,7 +23,7 @@ class Robot
     def valid_commands(commands)
       all_valid_commands = ["MOVE","LEFT","RIGHT","REPORT"]
       (commands - all_valid_commands).empty? && commands.last == "REPORT"
-    end            
+    end
 
     def execute_robot_move(lines)
       # Get the initial position of robot
@@ -80,15 +80,14 @@ class Robot
         new_direction = MOVES[:right_direction][robot_position.to_sym]
       else
         new_direction = "NORTH" #Default
-      end    
-    end  
+      end
+    end
 
     # Validation methods
     def initial_line_validator(line)
       initial_line_regex = /PLACE [0-4],[0-4],(NORTH|SOUTH|EAST|WEST)\z/
       return true if line.match?(initial_line_regex)
     end
-
   end
 end
 Robot.run
